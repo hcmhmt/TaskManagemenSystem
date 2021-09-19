@@ -11,13 +11,13 @@
 
     <groupId>com.simurgh</groupId>
     <artifactId>TaskManagementSystem</artifactId>
-    <version>{project.version}</version>
+    <version>${revision}</version>
     <name>Task Management System</name>
     <description>Task Management System For Teams</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <project.version>v1.0</project.version>
+        <revision>v1.0</revision>
     </properties>
 
     <dependencies>
