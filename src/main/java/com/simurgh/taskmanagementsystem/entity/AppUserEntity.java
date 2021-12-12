@@ -3,12 +3,12 @@ package com.simurgh.taskmanagementsystem.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
-public class UserEntity extends AbstractEntity{
+@Table(name = "app_user")
+public class AppUserEntity extends AbstractEntity{
 
     @Id
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "app_user_id")
+    private Long appUserId;
 
     @Column(name = "name")
     private String name;
@@ -49,12 +49,12 @@ public class UserEntity extends AbstractEntity{
     )
     private StatusEntity statusEntity;
 
-    public Long getUserId() {
-        return userId;
+    public Long getAppUserId() {
+        return appUserId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setAppUserId(Long userId) {
+        this.appUserId = userId;
     }
 
     public String getName() {
