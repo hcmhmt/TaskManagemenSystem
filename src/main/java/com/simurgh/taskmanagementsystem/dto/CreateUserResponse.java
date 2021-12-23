@@ -8,4 +8,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUserResponse {
+
+    private Long id;
+    private String firstName;
+    private String secondName;
+    private String nickName;
+    private String lastName;
+
 }
