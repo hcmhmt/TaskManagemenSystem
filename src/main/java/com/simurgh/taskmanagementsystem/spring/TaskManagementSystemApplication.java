@@ -8,7 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ComponentScan(basePackages = "com.simurgh.taskmanagementsystem")
-@ComponentScan(basePackageClasses = AppUserEntity.class)
 @EntityScan(basePackages = "com.simurgh.taskmanagementsystem.entity")
 @EnableJpaRepositories(value = "com.simurgh.taskmanagementsystem.repository")
 @SpringBootApplication
