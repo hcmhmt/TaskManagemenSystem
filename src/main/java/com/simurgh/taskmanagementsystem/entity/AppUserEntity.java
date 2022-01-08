@@ -8,6 +8,8 @@ public class AppUserEntity extends AbstractEntity{
 
     @Id
     @Column(name = "app_user_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "appUserSeq")
+    @SequenceGenerator(name = "appUserSeq", sequenceName = "app_user_seq", allocationSize = 1)
     private Long appUserId;
 
     @Column(name = "name")

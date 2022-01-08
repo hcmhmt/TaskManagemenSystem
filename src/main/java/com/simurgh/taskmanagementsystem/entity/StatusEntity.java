@@ -1,9 +1,6 @@
 package com.simurgh.taskmanagementsystem.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "status")
@@ -11,6 +8,8 @@ public class StatusEntity extends AbstractEntity{
 
     @Id
     @Column(name = "status_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "statusSeq")
+    @SequenceGenerator(name = "statusSeq", sequenceName = "status_seq", allocationSize = 1)
     private Long statusId;
 
     @Column(name = "name")
@@ -18,6 +17,9 @@ public class StatusEntity extends AbstractEntity{
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "status_code")
+    private String statusCode;
 
     @Column(name = "short_code")
     private String shortCode;
@@ -44,6 +46,14 @@ public class StatusEntity extends AbstractEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
     }
 
     public String getShortCode() {

@@ -9,11 +9,12 @@ public class TaskEntity extends AbstractEntity{
 
     @Id
     @Column(name = "task_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taskSeq")
+    @SequenceGenerator(name = "taskSeq", sequenceName = "task_seq", allocationSize = 1)
     private Long taskId;
 
     @Column(name = "name")
     private String name;
-
 
     @Column(name = "description")
     private String description;
