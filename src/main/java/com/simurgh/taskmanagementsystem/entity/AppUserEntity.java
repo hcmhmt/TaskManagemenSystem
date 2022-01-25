@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "app_user")
-public class AppUserEntity extends AbstractEntity{
+public class AppUserEntity extends AbstractEntity {
 
     @Id
     @Column(name = "app_user_id")
@@ -14,6 +14,9 @@ public class AppUserEntity extends AbstractEntity{
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "surname")
     private String surname;
@@ -65,6 +68,14 @@ public class AppUserEntity extends AbstractEntity{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSurname() {
