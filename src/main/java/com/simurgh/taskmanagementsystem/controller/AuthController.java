@@ -1,5 +1,7 @@
 package com.simurgh.taskmanagementsystem.controller;
 
+import com.simurgh.taskmanagementsystem.dto.AuthenticationResponse;
+import com.simurgh.taskmanagementsystem.dto.LoginRequest;
 import com.simurgh.taskmanagementsystem.dto.RegisterUserRequest;
 import com.simurgh.taskmanagementsystem.dto.RegisterUserResponse;
 import com.simurgh.taskmanagementsystem.service.auth.IAuthService;
@@ -32,6 +34,5 @@ public class AuthController {
     public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) {
         return new ResponseEntity(authService.login(loginRequest), HttpStatus.OK);
     }
-
 
 }

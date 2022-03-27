@@ -1,8 +1,6 @@
 package com.simurgh.taskmanagementsystem.service.auth;
 
-import com.simurgh.taskmanagementsystem.dto.AppUser;
-import com.simurgh.taskmanagementsystem.dto.RegisterUserRequest;
-import com.simurgh.taskmanagementsystem.dto.RegisterUserResponse;
+import com.simurgh.taskmanagementsystem.dto.*;
 
 public interface IAuthService {
 
@@ -12,4 +10,5 @@ public interface IAuthService {
 
     String verifyAccount(String token);
 
+    AuthenticationResponse login(LoginRequest loginRequest);
 }

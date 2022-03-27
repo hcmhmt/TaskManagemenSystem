@@ -1,6 +1,6 @@
 package com.simurgh.taskmanagementsystem.security;
 
-import com.simurgh.taskmanagementsystem.exceptions.SpringException;
+import com.simurgh.taskmanagementsystem.exceptions.SimurgException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
@@ -27,7 +27,7 @@ public class TokenProvider {
             InputStream resourceAsStream = getClass().getResourceAsStream("/springblog.jks");
             keyStore.load(resourceAsStream, "secret".toCharArray());
         } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
-            throw new SpringException("Exception occurred while loading keystore", e);
+            throw new SimurgException("Exception occurred while loading keystore", e);
         }
 
     }
@@ -51,7 +51,7 @@ public class TokenProvider {
         try {
             return (PrivateKey) keyStore.getKey("springblog", "secret".toCharArray());
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
-            throw new SpringException("Exception occured while retrieving public key from keystore", e);
+            throw new SimurgException("Exception occured while retrieving public key from keystore", e);
         }
     }
 
@@ -64,7 +64,7 @@ public class TokenProvider {
         try {
             return keyStore.getCertificate("springblog").getPublicKey();
         } catch (KeyStoreException e) {
-            throw new SpringException("Exception occured while " +
+            throw new SimurgException("Exception occured while " +
                     "retrieving public key from keystore", e);
         }
     }
