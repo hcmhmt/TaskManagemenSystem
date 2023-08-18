@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "status")
-public class StatusEntity extends AbstractEntity{
+public class StatusEntity extends AbstractBaseEntity {
 
     @Id
     @Column(name = "status_id")
@@ -23,6 +23,9 @@ public class StatusEntity extends AbstractEntity{
 
     @Column(name = "short_code")
     private String shortCode;
+
+    @Column(name = "isActive")
+    private Long isActive;
 
     public Long getStatusId() {
         return statusId;
@@ -62,5 +65,13 @@ public class StatusEntity extends AbstractEntity{
 
     public void setShortCode(String shortCode) {
         this.shortCode = shortCode;
+    }
+
+    public Long getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Long isActive) {
+        this.isActive = isActive;
     }
 }

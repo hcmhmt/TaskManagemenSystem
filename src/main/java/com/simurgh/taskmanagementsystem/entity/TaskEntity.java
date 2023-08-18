@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "task")
-public class TaskEntity extends AbstractEntity{
+public class TaskEntity extends AbstractBaseEntity {
 
     @Id
     @Column(name = "task_id")

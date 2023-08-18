@@ -1,11 +1,11 @@
 package com.simurgh.taskmanagementsystem.repository;
 
-import com.simurgh.taskmanagementsystem.entity.AppUserEntity;
+import com.simurgh.taskmanagementsystem.entity.ApplicationUserEntity;
 
-public interface AppUserRepository extends BaseJpaRepository<AppUserEntity, Long> {
+public interface AppUserRepository extends BaseJpaRepository<ApplicationUserEntity, Long> {
 
-    AppUserEntity findByUsername(String username);
+    ApplicationUserEntity findByUsername(String username);
 
-    AppUserEntity findByUsernameOrEmailOrPhone(String username, String email, String phoneNumber);
+    ApplicationUserEntity findByUsernameOrEmailOrPhone(String username, String email, String phoneNumber);
 
 }

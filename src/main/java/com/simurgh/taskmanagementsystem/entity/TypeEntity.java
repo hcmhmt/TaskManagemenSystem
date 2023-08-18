@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "type")
-public class TypeEntity extends AbstractEntity {
+public class TypeEntity extends AbstractBaseEntity {
 
     @Id
     @Column(name = "type_id")

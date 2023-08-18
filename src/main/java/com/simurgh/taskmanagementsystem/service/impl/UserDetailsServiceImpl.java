@@ -1,8 +1,7 @@
 package com.simurgh.taskmanagementsystem.service.impl;
 
-import com.simurgh.taskmanagementsystem.entity.AppUserEntity;
+import com.simurgh.taskmanagementsystem.entity.ApplicationUserEntity;
 import com.simurgh.taskmanagementsystem.repository.AppUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -28,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) {
-        AppUserEntity appUser = appUserRepository.findByUsername(username);
+        ApplicationUserEntity appUser = appUserRepository.findByUsername(username);
 
         if (appUser == null) {
             throw new UsernameNotFoundException("No user found with username : " + username);

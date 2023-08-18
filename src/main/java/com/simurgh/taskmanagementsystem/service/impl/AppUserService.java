@@ -1,7 +1,7 @@
 package com.simurgh.taskmanagementsystem.service.impl;
 
 import com.simurgh.taskmanagementsystem.dto.*;
-import com.simurgh.taskmanagementsystem.entity.AppUserEntity;
+import com.simurgh.taskmanagementsystem.entity.ApplicationUserEntity;
 import com.simurgh.taskmanagementsystem.exceptions.SimurgException;
 import com.simurgh.taskmanagementsystem.repository.AppUserRepository;
 import com.simurgh.taskmanagementsystem.service.IAppUserService;
@@ -44,7 +44,7 @@ public class AppUserService implements IAppUserService {
         // 5. Create contactInformation -> TODO
 
         // Todo: Dto to Entity Map with MapStruct
-        AppUserEntity appUserEntity = buildAppUserEntityByRegisterUserRequest(request);
+        ApplicationUserEntity appUserEntity = buildAppUserEntityByRegisterUserRequest(request);
 
         // 6. Register user
         appUserEntity = appUserRepository.save(appUserEntity);
@@ -53,11 +53,11 @@ public class AppUserService implements IAppUserService {
         return buildRegisterUserResponse(appUserEntity);
     }
 
-    private RegisterUserResponse buildRegisterUserResponse(AppUserEntity appUserEntity) {
+    private RegisterUserResponse buildRegisterUserResponse(ApplicationUserEntity appUserEntity) {
         RegisterUserResponse response = new RegisterUserResponse();
-        response.setUserId(appUserEntity.getAppUserId());
-        response.setFirstName(appUserEntity.getName());
-        response.setLastName(appUserEntity.getSurname());
+        response.setUserId(appUserEntity.getApplicationUserId());
+//        response.setFirstName(appUserEntity.getName());
+//        response.setLastName(appUserEntity.getSurname());
         response.setUserName(appUserEntity.getUsername());
 
         return response;
@@ -69,7 +69,7 @@ public class AppUserService implements IAppUserService {
         checkMandatoryFields(request);
 
         // 3. Check isUserExist
-        AppUserEntity userEntity = appUserRepository.findByUsernameOrEmailOrPhone(
+        ApplicationUserEntity userEntity = appUserRepository.findByUsernameOrEmailOrPhone(
                 request.getUserName(),
                 request.getEmail(),
                 request.getPhoneNumber());
@@ -102,15 +102,15 @@ public class AppUserService implements IAppUserService {
         }
     }
 
-    private AppUserEntity buildAppUserEntityByRegisterUserRequest(RegisterUserRequest request) {
-        AppUserEntity appUserEntity = new AppUserEntity();
-        appUserEntity.setName(request.getFirstName());
+    private ApplicationUserEntity buildAppUserEntityByRegisterUserRequest(RegisterUserRequest request) {
+        ApplicationUserEntity appUserEntity = new ApplicationUserEntity();
+//        appUserEntity.setName(request.getFirstName());
         appUserEntity.setUsername(request.getUserName());
         appUserEntity.setPassword(passwordEncoder.encode(request.getPassword()));
         appUserEntity.setEmail(request.getEmail());
-        appUserEntity.setPhone(request.getPhoneNumber());
+//        appUserEntity.setPhone(request.getPhoneNumber());
         appUserEntity.setStId(UserActive.getStatusId());
-        appUserEntity.setUserTypeId(GeneralUser.getTypeId());
+//        appUserEntity.setUserTypeId(GeneralUser.getTypeId());
 
         return appUserEntity;
     }
