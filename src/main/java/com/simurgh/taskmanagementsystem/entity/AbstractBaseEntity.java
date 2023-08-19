@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @MappedSuperclass
-public abstract class AbstractEntity implements Serializable {
+public abstract class AbstractBaseEntity implements Serializable {
 
     @CreatedDate
     @Column(name = "cdate")

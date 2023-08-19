@@ -5,10 +5,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "type")
-public class TypeEntity extends AbstractEntity {
+public class TypeEntity extends AbstractBaseEntity {
 
     @Id
     @Column(name = "type_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "typeSeq")
+    @SequenceGenerator(name = "typeSeq", sequenceName = "type_seq", allocationSize = 1)
     private Long typeId;
 
     @Column(name = "name")
@@ -20,8 +22,8 @@ public class TypeEntity extends AbstractEntity {
     @Column(name = "short_code")
     private String shortCode;
 
-    @Column(name = "entity_code_name")
-    private String entityCodeName;
+    @Column(name = "type_code")
+    private String typeCode;
 
     @Column(name = "st_id")
     private Long stId;
@@ -67,12 +69,12 @@ public class TypeEntity extends AbstractEntity {
         this.shortCode = shortCode;
     }
 
-    public String getEntityCodeName() {
-        return entityCodeName;
+    public String getTypeCode() {
+        return typeCode;
     }
 
-    public void setEntityCodeName(String entityCodeName) {
-        this.entityCodeName = entityCodeName;
+    public void setTypeCode(String entityCodeName) {
+        this.typeCode = entityCodeName;
     }
 
     public Long getStId() {
